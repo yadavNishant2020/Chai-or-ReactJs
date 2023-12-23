@@ -25,13 +25,16 @@ export const todoSlice = createSlice({
     },
     updateTodo: (state, action) => {
       const { id, newText } = action.payload;
-      state.todos = state.todos.map((todo) =>
-        todo.id == id ? { text: newText } : todo
-      );
+      // console.log(action.payload);
+      const index = state.todos.findIndex((todo) => todo.id === id);
+
+      if (index !== -1) {
+        state.todos[index].text = newText;
+      }
     },
   },
 });
 
-export const {addTodo, removeTodo, updateTodo} = todoSlice.actions
+export const { addTodo, removeTodo, updateTodo } = todoSlice.actions;
 
-export default todoSlice.reducer
+export default todoSlice.reducer;
