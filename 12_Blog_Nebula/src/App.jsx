@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
 import { login, logout } from "./features/authSlice";
 import { Header, Footer } from "./components";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
 // import { Outlet } from "react-router-dom";
 
@@ -21,14 +22,17 @@ function App() {
         }
       })
       .finally(() => setLoading(false));
-  }, []);
+  }, [dispatch]);
 
   return !loading ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
-        <Header />
-        <main>TODO: {/* <Outlet /> */}</main>
-        <Footer />
+      <Router>
+      <Routes>
+        <Route path="/" element={<Header />} />
+      </Routes>
+    </Router>
+    <Footer />
       </div>
     </div>
   ) : null;

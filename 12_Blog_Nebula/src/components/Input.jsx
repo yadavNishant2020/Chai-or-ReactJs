@@ -9,7 +9,7 @@ const Input = React.forwardRef(function Input(
     <div className="w-full">
       {label && (
         <label className="inline-block mb-1 pl-1" htmlFor={props.id}>
-          {label}{" "}
+          {label}
         </label>
       )}
       <input type={type} className={`${className}`} ref={ref} {...props} id={id}/>
