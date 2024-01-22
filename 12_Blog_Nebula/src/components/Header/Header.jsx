@@ -7,7 +7,7 @@ function Header() {
   const authStatus = useSelector((state) => state.auth.status);
 
   const navigate = useNavigate();
-  const navItem = [
+  const navItems = [
     {
       name: "Home",
       slug: "/",
@@ -44,7 +44,7 @@ function Header() {
             </Link>
           </div>
           <ul className="flex ml-auto">
-            {navItem.map((item) =>
+            {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
                   <button
