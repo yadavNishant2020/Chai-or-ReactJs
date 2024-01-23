@@ -13,30 +13,6 @@ export class AuthService {
     this.account = new Account(this.client);
   }
 
-  async login({ email, password }) {
-    try {
-      return await this.account.createEmailSession(email, password);
-    } catch (error) {
-      throw new Error("Failed to login. Please check your email and password.");
-    }
-  }
-
-  async getCurrentUser() {
-    try {
-      return await this.account.get();
-    } catch (error) {
-      throw new Error("Failed to get current user.");
-    }
-  }
-
-  async logout() {
-    try {
-      await this.account.deleteSessions();
-    } catch (error) {
-      throw new Error("Failed to logout.");
-    }
-  }
-
   async createAccount({ email, password, name }) {
     try {
       const userAccount = await this.account.create(
@@ -60,6 +36,32 @@ export class AuthService {
       }
     }
   }
+
+  async login({ email, password }) {
+    try {
+      return await this.account.createEmailSession(email, password);
+    } catch (error) {
+      throw new Error("Failed to login. Please check your email and password.");
+    }
+  }
+
+  async getCurrentUser() {
+    try {
+      return await this.account.get();
+    } catch (error) {
+      console.error("Error getting current user:", error);
+    }
+  }
+
+
+  async logout() {
+    try {
+      await this.account.deleteSessions();
+    } catch (error) {
+      throw new Error("Failed to logout.");
+    }
+  }
+
 }
 
 const authService = new AuthService();

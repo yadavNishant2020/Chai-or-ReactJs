@@ -11,22 +11,38 @@ function TextEditor({ name, control, label, deaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
-            apiKey="z2q6q4y5q2x5w2p5q2g2j5z2o5q2l2g2c2p2y2k2n2a2q2=="
-            initialValue={deaultValue}
-            init={{
-              initialValye: deaultValue,
-              height: 500,
-              menubar: true,
-              plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table paste code help wordcount",
-              ],
-              toolbar:
-                "undo redo | formatselect | bold italic underline | \
-                alignleft aligncenter alignright | \
-                bullist numlist outdent indent | help",
-            }}
+           apiKey='sh77bya194si14zoau2yuyzeobh7ki0xx270n5jp19bqilna'
+           initialValue={deaultValue}
+           init={{
+            initialValue: deaultValue,
+            height: 500,
+            menubar: true,
+            plugins: [
+                "image",
+                "advlist",
+                "autolink",
+                "lists",
+                "link",
+                "image",
+                "charmap",
+                "preview",
+                "anchor",
+                "searchreplace",
+                "visualblocks",
+                "code",
+                "fullscreen",
+                "insertdatetime",
+                "media",
+                "table",
+                "code",
+                "help",
+                "wordcount",
+                "anchor",
+            ],
+            toolbar:
+            "undo redo | blocks | image | bold italic forecolor | alignleft aligncenter bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |removeformat | help",
+            content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
+        }}
             onEditorChange={onChange}
           />
         )}
